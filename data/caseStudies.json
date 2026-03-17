@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "name": "Solomon Barnes",
+    "sport": "Basketball",
+    "position": "Guard",
+    "metric": "5k → 10k",
+    "metricLabel": "followers in 28 days",
+    "description": "Built a content system from scratch that doubled his following, landed a local sportswear deal, and positioned him as a go-to voice in the NAIA space.",
+    "tags": ["Growth", "Brand Deals", "Content"],
+    "color": "#1A6EFF"
+  },
+  {
+    "id": 2,
+    "name": "Jayden Bell",
+    "sport": "Football",
+    "position": "Defensive End",
+    "metric": "#1",
+    "metricLabel": "Ranked recruit in region",
+    "description": "Managed the digital brand of one of the nation's top recruits — creating a pro-level media presence before he ever signed a college letter of intent.",
+    "tags": ["Recruiting", "Media", "NIL"],
+    "color": "#00E5CC"
+  }
+]
