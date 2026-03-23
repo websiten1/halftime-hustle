@@ -15,7 +15,7 @@ export default function Marquee() {
   const doubled = [...brands, ...brands]
 
   return (
-    <section id="marquee" className="py-16 border-y border-white/5 overflow-hidden bg-[#0A0A0A]">
+    <section id="marquee" className="py-16 border-y border-white/5 bg-[#0A0A0A]" style={{ overflow: 'hidden' }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -33,8 +33,8 @@ export default function Marquee() {
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling row — fixed 80px tall */}
-        <div style={{ height: 80, overflow: 'hidden' }}>
+        {/* Track */}
+        <div style={{ height: 100, overflow: 'visible', display: 'flex', alignItems: 'center' }}>
           <div
             className="animate-marquee"
             style={{
@@ -42,55 +42,52 @@ export default function Marquee() {
               alignItems: 'center',
               height: '100%',
               whiteSpace: 'nowrap',
+              overflow: 'visible',
             }}
           >
             {doubled.map(({ name, src }, i) => (
-              <LogoItem key={i} name={name} src={src} />
+              <span
+                key={i}
+                aria-label={name}
+                className="marquee-logo-item"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  margin: '0 48px',
+                  cursor: 'default',
+                  userSelect: 'none',
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={src}
+                  alt={name}
+                  draggable={false}
+                  className="marquee-logo-img"
+                  style={{
+                    height: '80px',
+                    width: '160px',
+                    objectFit: 'contain',
+                    display: 'block',
+                    filter: 'brightness(0) invert(1)',
+                    opacity: 1,
+                    transition: 'filter 0.3s ease',
+                    flexShrink: 0,
+                  }}
+                  onMouseEnter={e => {
+                    ;(e.currentTarget as HTMLImageElement).style.filter = 'none'
+                  }}
+                  onMouseLeave={e => {
+                    ;(e.currentTarget as HTMLImageElement).style.filter = 'brightness(0) invert(1)'
+                  }}
+                />
+              </span>
             ))}
           </div>
         </div>
       </div>
-
-      <style>{`
-        .marquee-logo {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 40px;
-          cursor: default;
-          user-select: none;
-          flex-shrink: 0;
-        }
-        .marquee-logo img {
-          height: 32px;
-          width: auto !important;
-          object-fit: contain;
-          display: block;
-          filter: brightness(0) invert(1);
-          opacity: 0.6;
-          transition: opacity 0.3s ease, filter 0.3s ease;
-        }
-        @media (min-width: 768px) {
-          .marquee-logo img {
-            height: 40px;
-          }
-          .marquee-logo {
-            margin: 0 64px;
-          }
-        }
-        .marquee-logo:hover img {
-          opacity: 1;
-          filter: none;
-        }
-      `}</style>
     </section>
-  )
-}
-
-function LogoItem({ name, src }: { name: string; src: string }) {
-  return (
-    <span className="marquee-logo" aria-label={name}>
-      <img src={src} alt={name} draggable={false} />
-    </span>
   )
 }
