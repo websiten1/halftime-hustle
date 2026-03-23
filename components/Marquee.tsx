@@ -2,13 +2,13 @@
 import { motion } from 'framer-motion'
 
 const brands = [
-  { name: 'Nike',           src: '/images/logo-nike.svg',       h: 'h-7'  },
-  { name: 'Adidas',         src: '/images/logo-adidas.png',     h: 'h-10' },
-  { name: 'On',             src: '/images/logo-on.png',         h: 'h-10' },
-  { name: 'Hey Dude',       src: '/images/logo-heydude.svg',    h: 'h-10' },
-  { name: 'Vicis',          src: '/images/logo-vicis.png',      h: 'h-10' },
-  { name: 'The North Face', src: '/images/logo-northface.png',  h: 'h-10' },
-  { name: 'Arm & Hammer',   src: '/images/logo-armhammer.png',  h: 'h-10' },
+  { name: 'Nike',           src: '/images/logo-nike.svg',       h: 'h-14' },
+  { name: 'Adidas',         src: '/images/logo-adidas.png',     h: 'h-20' },
+  { name: 'On',             src: '/images/logo-on.png',         h: 'h-20' },
+  { name: 'Hey Dude',       src: '/images/logo-heydude.svg',    h: 'h-20' },
+  { name: 'Vicis',          src: '/images/logo-vicis.png',      h: 'h-20' },
+  { name: 'The North Face', src: '/images/logo-northface.png',  h: 'h-20' },
+  { name: 'Arm & Hammer',   src: '/images/logo-armhammer.png',  h: 'h-20' },
 ]
 
 export default function Marquee() {
