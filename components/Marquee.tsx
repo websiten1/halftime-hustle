@@ -1,116 +1,87 @@
 'use client'
 import { motion } from 'framer-motion'
 
-// ── Logo components ───────────────────────────────────────────────────────────
-// All SVGs use fill="#FFFFFF" directly. Hover is controlled by opacity on wrapper.
+// All logos are rendered white on the dark background.
+// For PNGs/SVGs with white backgrounds and dark artwork:
+//   filter: invert(1) turns dark→white and white→black
+//   mix-blend-mode: screen makes the black areas invisible against the dark page
+// For Nike SVG (transparent bg, dark path):
+//   filter: brightness(0) invert(1) makes the path white
 
-// Nike — official swoosh via Simple Icons CDN (white)
+const WHITE_FILTER = 'invert(1)'
+const WHITE_FILTER_BLEND: React.CSSProperties = {
+  filter: WHITE_FILTER,
+  mixBlendMode: 'screen',
+}
+
 const NikeLogo = () => (
   <img
-    src="https://cdn.simpleicons.org/nike/ffffff"
+    src="/images/logo-nike.svg"
     alt="Nike"
-    className="h-8 w-auto object-contain"
+    className="h-7 w-auto object-contain"
+    style={{ filter: 'brightness(0) invert(1)' }}
     draggable={false}
   />
 )
 
-// Adidas — official logo via Simple Icons CDN (white)
 const AdidasLogo = () => (
   <img
-    src="https://cdn.simpleicons.org/adidas/ffffff"
+    src="/images/logo-adidas.png"
     alt="Adidas"
-    className="h-8 w-auto object-contain"
+    className="h-10 w-auto object-contain"
+    style={WHITE_FILTER_BLEND}
     draggable={false}
   />
 )
 
-// The North Face — via Simple Icons CDN (white)
 const NorthFaceLogo = () => (
   <img
-    src="https://cdn.simpleicons.org/thenorthface/ffffff"
+    src="/images/logo-northface.png"
     alt="The North Face"
-    className="h-8 w-auto object-contain"
+    className="h-10 w-auto object-contain"
+    style={WHITE_FILTER_BLEND}
     draggable={false}
   />
 )
 
-// On Running — clean wordmark SVG with explicit fill
 const OnLogo = () => (
-  <svg viewBox="0 0 56 36" className="h-8 w-auto" xmlns="http://www.w3.org/2000/svg">
-    <text
-      x="2"
-      y="28"
-      fill="#FFFFFF"
-      style={{
-        fontFamily: "'Tomorrow', 'Arial Black', Arial, sans-serif",
-        fontSize: '28px',
-        fontWeight: 700,
-        letterSpacing: '-1px',
-      }}
-    >
-      On
-    </text>
-  </svg>
+  <img
+    src="/images/logo-on.png"
+    alt="On"
+    className="h-10 w-auto object-contain"
+    style={WHITE_FILTER_BLEND}
+    draggable={false}
+  />
 )
 
-// Hey Dude — bold caps wordmark
 const HeyDudeLogo = () => (
-  <svg viewBox="0 0 180 36" className="h-7 w-auto" xmlns="http://www.w3.org/2000/svg">
-    <text
-      x="2"
-      y="27"
-      fill="#FFFFFF"
-      style={{
-        fontFamily: "'Tomorrow', 'Arial Black', Arial, sans-serif",
-        fontSize: '22px',
-        fontWeight: 900,
-        letterSpacing: '2px',
-      }}
-    >
-      HEY DUDE
-    </text>
-  </svg>
+  <img
+    src="/images/logo-heydude.svg"
+    alt="Hey Dude"
+    className="h-10 w-auto object-contain"
+    style={WHITE_FILTER_BLEND}
+    draggable={false}
+  />
 )
 
-// Vicis — angular caps wordmark (helmet brand)
 const VicisLogo = () => (
-  <svg viewBox="0 0 110 36" className="h-7 w-auto" xmlns="http://www.w3.org/2000/svg">
-    <text
-      x="2"
-      y="27"
-      fill="#FFFFFF"
-      style={{
-        fontFamily: "'Tomorrow', 'Arial Black', Arial, sans-serif",
-        fontSize: '24px',
-        fontWeight: 800,
-        letterSpacing: '4px',
-      }}
-    >
-      VICIS
-    </text>
-  </svg>
+  <img
+    src="/images/logo-vicis.png"
+    alt="Vicis"
+    className="h-10 w-auto object-contain"
+    style={WHITE_FILTER_BLEND}
+    draggable={false}
+  />
 )
 
-// Arm & Hammer — wordmark with small hammer icon
 const ArmHammerLogo = () => (
-  <svg viewBox="0 0 230 36" className="h-7 w-auto" xmlns="http://www.w3.org/2000/svg">
-    {/* Minimal hammer icon */}
-    <rect x="2" y="9"  width="14" height="7"  rx="1.5" fill="#FFFFFF" />
-    <rect x="6" y="16" width="6"  height="14" rx="1.5" fill="#FFFFFF" />
-    <text
-      x="24"
-      y="27"
-      fill="#FFFFFF"
-      style={{
-        fontFamily: "'Tomorrow', Arial, sans-serif",
-        fontSize: '19px',
-        fontWeight: 700,
-        letterSpacing: '1.5px',
-      }}
-    >
-      ARM &amp; HAMMER
-    </text>
-  </svg>
+  <img
+    src="/images/logo-armhammer.png"
+    alt="Arm & Hammer"
+    className="h-10 w-auto object-contain"
+    style={WHITE_FILTER_BLEND}
+    draggable={false}
+  />
 )
 
 // ── Brand list ────────────────────────────────────────────────────────────────
@@ -155,9 +126,9 @@ export default function Marquee() {
               <div
                 key={i}
                 className="inline-flex items-center mx-12 cursor-default select-none transition-opacity duration-300"
-                style={{ opacity: 0.3 }}
+                style={{ opacity: 0.35 }}
                 onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
-                onMouseLeave={e => (e.currentTarget.style.opacity = '0.3')}
+                onMouseLeave={e => (e.currentTarget.style.opacity = '0.35')}
                 aria-label={name}
               >
                 <Logo />
