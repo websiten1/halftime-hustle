@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -32,13 +33,16 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-[#FFD700] flex items-center justify-center">
-            <span className="text-[#0A0A0A] font-tomorrow font-black text-sm">HH</span>
-          </div>
-          <span className="font-tomorrow font-bold text-white text-lg tracking-tight">
-            Halftime Hustle
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/halftime_hustle_logo_1.jpg"
+            alt="Halftime Hustle"
+            width={160}
+            height={40}
+            className="object-contain"
+            style={{ mixBlendMode: 'lighten' }}
+            priority
+          />
         </Link>
 
         {/* Desktop Links */}

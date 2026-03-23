@@ -1,24 +1,21 @@
 [
   {
-    "value": 60000,
-    "suffix": "+",
+    "value": 60,
+    "suffix": "k+",
     "label": "Personal Reach",
-    "shortLabel": "60k+",
     "description": "Combined organic reach across athlete profiles we've built"
   },
   {
-    "value": 2000000,
-    "suffix": "+",
+    "value": 2,
+    "suffix": "M+",
     "label": "Views Generated",
-    "shortLabel": "2M+",
     "description": "Total video views generated for athletes on our roster"
   },
   {
-    "value": 30000,
+    "value": 30,
     "prefix": "$",
-    "suffix": "+",
+    "suffix": "k+",
     "label": "Client Revenue",
-    "shortLabel": "$30k+",
     "description": "In verified NIL deals negotiated for our athletes"
   }
 ]

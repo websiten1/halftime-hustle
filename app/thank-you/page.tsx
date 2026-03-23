@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function ThankYou() {
   return (
@@ -11,7 +12,22 @@ export default function ThankYou() {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-xl w-full"
       >
-        {/* Icon */}
+        {/* Logo */}
+        <div className="flex justify-center mb-10">
+          <Link href="/">
+            <Image
+              src="/images/halftime_hustle_logo_1.jpg"
+              alt="Halftime Hustle"
+              width={200}
+              height={50}
+              className="object-contain"
+              style={{ mixBlendMode: 'lighten' }}
+              priority
+            />
+          </Link>
+        </div>
+
+        {/* Check icon */}
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}

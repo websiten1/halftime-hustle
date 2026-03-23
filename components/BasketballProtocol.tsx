@@ -6,20 +6,21 @@ const STEPS = [
     num: '01', title: 'Magnetize', color: '#FFD700',
     subtitle: 'Create what brands crave',
     body: 'We analyze your audience, identify your brand DNA, and build a content system that turns scrolls into sponsorships.',
+    video: 'https://cdn.coverr.co/videos/coverr-athlete-running-on-track-1080p-3736/1080p.mp4',
   },
   {
     num: '02', title: 'Portfolio', color: '#00E5CC',
     subtitle: 'The professional pitch',
     body: 'Your NIL media kit, sponsor deck, and outreach strategy — designed to make brands say yes before you finish talking.',
+    video: 'https://cdn.coverr.co/videos/coverr-basketball-player-dribbling-5411/1080p.mp4',
   },
   {
     num: '03', title: 'Capture', color: '#FFD700',
     subtitle: 'Turning attention into contracts',
     body: 'We identify the right brands, warm the relationship, and help you close deals. You play. We pitch.',
+    video: 'https://cdn.coverr.co/videos/coverr-two-people-shaking-hands-4791/1080p.mp4',
   },
 ]
-
-const VIDEO_SRC = 'https://www.w3schools.com/html/mov_bbb.mp4'
 
 export default function BasketballProtocol() {
   return (
@@ -53,7 +54,7 @@ export default function BasketballProtocol() {
               {/* Mobile: gradient fallback background */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a00] to-[#0d0d0d]" />
 
-              {/* Desktop: video background */}
+              {/* Video background — hidden on mobile for performance */}
               <video
                 autoPlay
                 muted
@@ -61,8 +62,9 @@ export default function BasketballProtocol() {
                 playsInline
                 preload="none"
                 className="absolute inset-0 w-full h-full object-cover hidden sm:block"
+                onError={e => { (e.currentTarget as HTMLVideoElement).style.display = 'none' }}
               >
-                <source src={VIDEO_SRC} type="video/mp4" />
+                <source src={step.video} type="video/mp4" />
               </video>
 
               {/* Dark overlay — always present so text is readable */}

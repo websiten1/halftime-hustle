@@ -1,6 +1,6 @@
 'use client'
-import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const navLinks = [
   { label: 'Athletes', href: '/#about' },
@@ -14,17 +14,24 @@ export default function Footer() {
   return (
     <footer className="bg-[#050505] border-t border-white/5 py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+        {/* Centered logo */}
+        <div className="flex justify-center mb-12">
+          <Link href="/">
+            <Image
+              src="/images/halftime_hustle_logo_1.jpg"
+              alt="Halftime Hustle"
+              width={200}
+              height={48}
+              className="object-contain"
+              style={{ mixBlendMode: 'lighten' }}
+            />
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Left: Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#FFD700] flex items-center justify-center">
-                <span className="text-[#0A0A0A] font-tomorrow font-black text-sm">HH</span>
-              </div>
-              <span className="font-tomorrow font-bold text-white text-lg tracking-tight">
-                Halftime Hustle
-              </span>
-            </Link>
             <p className="font-tomorrow text-white/40 text-sm leading-relaxed max-w-xs">
               Building athlete brands that outlast the game.
             </p>

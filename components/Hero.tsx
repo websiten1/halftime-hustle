@@ -1,7 +1,8 @@
 'use client'
 import { motion } from 'framer-motion'
 
-const words = ['The', 'NAIA', 'Playbook', 'for', 'Nike-Level', 'Brands']
+const words = ['I', 'give', 'every', 'athlete', 'the', 'playbook', 'to', 'land', 'real', 'brand', 'deals.']
+const gradientWords = ['real']
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
@@ -82,7 +83,7 @@ export default function Hero() {
                 key={i}
                 variants={wordVariant}
                 className="inline-block mr-[0.22em]"
-                style={w === 'Nike-Level' ? {
+                style={gradientWords.includes(w) ? {
                   background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
