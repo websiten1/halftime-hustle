@@ -19,12 +19,11 @@ export default function Footer() {
         <div className="flex justify-center mb-12">
           <Link href="/">
             <Image
-              src="/images/halftime_hustle_logo_1.jpg"
+              src="/images/halftime_hustle_logo.png"
               alt="Halftime Hustle"
               width={200}
               height={48}
               className="object-contain"
-              style={{ mixBlendMode: 'lighten' }}
             />
           </Link>
         </div>

@@ -16,12 +16,11 @@ export default function ThankYou() {
         <div className="flex justify-center mb-10">
           <Link href="/">
             <Image
-              src="/images/halftime_hustle_logo_1.jpg"
+              src="/images/halftime_hustle_logo.png"
               alt="Halftime Hustle"
               width={200}
               height={50}
               className="object-contain"
-              style={{ mixBlendMode: 'lighten' }}
               priority
             />
           </Link>

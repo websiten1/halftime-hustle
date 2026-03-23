@@ -35,12 +35,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/halftime_hustle_logo_1.jpg"
+            src="/images/halftime_hustle_logo.png"
             alt="Halftime Hustle"
             width={160}
             height={40}
             className="object-contain"
-            style={{ mixBlendMode: 'lighten' }}
             priority
           />
         </Link>
