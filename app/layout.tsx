@@ -25,7 +25,7 @@ export default function RootLayout({
         />
 
       </head>
-      <body>{children}</body>
+      <body style={{ overflowX: 'hidden', maxWidth: '100vw' }}>{children}</body>
     </html>
   )
 }

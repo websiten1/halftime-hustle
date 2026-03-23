@@ -41,12 +41,16 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
   background-color: #0A0A0A;
   color: #FFFFFF;
   font-family: 'Tomorrow', sans-serif;
+  overflow-x: hidden;
+  max-width: 100vw;
   -webkit-font-smoothing: antialiased;
 }
 

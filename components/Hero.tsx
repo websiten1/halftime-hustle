@@ -33,7 +33,7 @@ const fadeUp = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-20" style={{ maxWidth: '100vw' }}>
       {/* Background */}
       <div className="absolute inset-0" style={{
         background: 'radial-gradient(ellipse 80% 60% at 50% 0%, #1a1a00 0%, #0a0a0a 65%)',
@@ -54,15 +54,15 @@ export default function Hero() {
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[400px] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0,229,204,0.07) 0%, transparent 70%)' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 w-full py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left */}
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 w-full py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Left — always visible */}
         <div>
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8 border"
+            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 border"
             style={{ background: 'rgba(255,215,0,0.08)', borderColor: 'rgba(255,215,0,0.25)' }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#00E5CC] animate-pulse" />
@@ -71,12 +71,12 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* Headline — word-by-word */}
+          {/* Headline — word-by-word, smaller on mobile */}
           <motion.h1
             variants={container}
             initial="hidden"
             animate="visible"
-            className="font-tomorrow font-black text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-white mb-6"
+            className="font-tomorrow font-black text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-white mb-5"
           >
             {words.map((w, i) => (
               <motion.span
@@ -101,7 +101,7 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-lg text-white/60 leading-relaxed mb-10 max-w-md font-tomorrow"
+            className="text-base md:text-lg text-white/60 leading-relaxed mb-6 md:mb-10 max-w-md font-tomorrow pb-2"
           >
             I give every athlete — D1 or NAIA — the same playbook and resources the top agencies keep to themselves. No spotlight required.
           </motion.p>
@@ -112,11 +112,11 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 mt-6 mb-8 md:mt-0 md:mb-0"
           >
             <a
               href="/#lead-form"
-              className="inline-flex items-center justify-center gap-2 text-[#0A0A0A] font-tomorrow font-bold text-base px-7 py-4 rounded-xl transition-all duration-200 hover:scale-105 min-h-[52px]"
+              className="inline-flex items-center justify-center gap-2 text-[#0A0A0A] font-tomorrow font-bold text-lg md:text-base px-7 py-4 rounded-xl transition-all duration-200 hover:scale-105 min-h-[52px]"
               style={{
                 background: '#FFD700',
                 boxShadow: '0 0 0 0 rgba(255,215,0,0.4)',
@@ -145,7 +145,7 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mt-10 flex items-center gap-3"
+            className="mt-8 md:mt-10 flex items-center gap-3"
           >
             <div className="flex -space-x-2">
               {[0, 1, 2, 3].map(i => (
@@ -165,12 +165,12 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — Video placeholder */}
+        {/* Right — Video placeholder, hidden on mobile to prevent overflow */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.45, ease: EASE }}
-          className="relative flex items-center justify-center"
+          className="relative items-center justify-center hidden lg:flex"
         >
           <div style={{ animation: 'float 4s ease-in-out infinite' }}>
             {/* 9:16 video container */}

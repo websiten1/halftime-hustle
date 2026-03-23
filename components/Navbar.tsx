@@ -92,12 +92,21 @@ export default function Navbar() {
           exit={{ opacity: 0, height: 0 }}
           className="md:hidden frosted-glass border-t border-white/5 px-6 py-4"
         >
+          <div className="flex justify-end mb-2">
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="text-white/60 hover:text-white p-2 text-xl leading-none"
+              aria-label="Close menu"
+            >
+              ✕
+            </button>
+          </div>
           {links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="block py-3 text-white/70 hover:text-white font-tomorrow text-base border-b border-white/5"
+              className="flex items-center py-3 text-white/70 hover:text-white font-tomorrow text-base border-b border-white/5 min-h-[48px]"
             >
               {link.label}
             </Link>
@@ -105,7 +114,7 @@ export default function Navbar() {
           <a
             href="/#lead-form"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 w-full flex items-center justify-center bg-[#FFD700] text-[#0A0A0A] font-tomorrow font-semibold text-sm px-5 py-3 rounded-xl min-h-[44px]"
+            className="mt-4 w-full flex items-center justify-center bg-[#FFD700] text-[#0A0A0A] font-tomorrow font-semibold text-sm px-5 py-3 rounded-xl min-h-[48px]"
           >
             Get My NIL Strategy
           </a>
