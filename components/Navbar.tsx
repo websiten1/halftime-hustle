@@ -31,15 +31,15 @@ export default function Navbar() {
         scrolled ? 'frosted-glass' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between relative">
+        {/* Logo — centered on mobile, left-aligned on desktop */}
+        <Link href="/" className="flex items-center md:static absolute left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:relative">
           <Image
             src="/images/halftime_hustle_logo.png"
             alt="Halftime Hustle"
             width={160}
             height={40}
-            className="object-contain"
+            className="object-contain w-24 md:w-40"
             priority
           />
         </Link>

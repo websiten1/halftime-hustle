@@ -34,7 +34,7 @@ export default function Marquee() {
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
 
-        <div style={{ height: 100, overflow: 'visible', display: 'flex', alignItems: 'center' }}>
+        <div style={{ height: 80, overflow: 'visible', display: 'flex', alignItems: 'center' }}>
           <div
             className="animate-marquee"
             style={{ display: 'flex', alignItems: 'center', height: '100%', whiteSpace: 'nowrap', overflow: 'visible' }}
@@ -43,19 +43,29 @@ export default function Marquee() {
               <span
                 key={i}
                 aria-label={name}
-                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, margin: '0 48px', cursor: 'default', userSelect: 'none' }}
+                className="marquee-item"
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, cursor: 'default', userSelect: 'none' }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={src}
                   alt={name}
                   draggable={false}
-                  style={{ height: '80px', width: '160px', objectFit: 'contain', display: 'block', filter, opacity: 1 }}
+                  className="marquee-logo-img"
+                  style={{ objectFit: 'contain', display: 'block', filter, opacity: 1 }}
                 />
               </span>
             ))}
           </div>
         </div>
+        <style>{`
+          .marquee-item { margin: 0 24px; }
+          .marquee-logo-img { height: 36px; width: 90px; }
+          @media (min-width: 768px) {
+            .marquee-item { margin: 0 48px; }
+            .marquee-logo-img { height: 80px; width: 160px; }
+          }
+        `}</style>
       </div>
     </section>
   )
