@@ -13,15 +13,14 @@ export default function LeadForm() {
     e.preventDefault()
     if (!form.name || !form.sport || !form.followers) return
     setSubmitting(true)
-    // Simulate brief delay
     await new Promise(r => setTimeout(r, 800))
     router.push('/thank-you')
   }
 
   const inputClass = (field: string) =>
-    `w-full bg-[#111] border rounded-xl px-4 py-4 font-inter text-white placeholder-white/25 text-sm transition-all duration-200 outline-none min-h-[52px] ${
+    `w-full bg-[#111] border rounded-xl px-4 py-4 font-tomorrow text-white placeholder-white/25 text-sm transition-all duration-200 outline-none min-h-[52px] ${
       focused === field
-        ? 'border-[#1A6EFF] shadow-[0_0_0_2px_rgba(26,110,255,0.15)]'
+        ? 'border-[#FFD700] shadow-[0_0_0_2px_rgba(255,215,0,0.15)]'
         : 'border-white/10 hover:border-white/20'
     }`
 
@@ -29,8 +28,8 @@ export default function LeadForm() {
     <section id="lead-form" className="py-32 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[#0A0A0A]">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1a33]/30 to-[#0A0A0A]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#1A6EFF]/6 rounded-full blur-[100px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1500]/30 to-[#0A0A0A]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#FFD700]/5 rounded-full blur-[100px]" />
       </div>
 
       <div className="relative max-w-xl mx-auto px-6">
@@ -42,24 +41,24 @@ export default function LeadForm() {
           className="will-change-transform"
         >
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-[#1A6EFF]/10 border border-[#1A6EFF]/20 rounded-full px-4 py-1.5 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1A6EFF] animate-pulse" />
-              <span className="text-[#1A6EFF] font-inter text-xs font-medium tracking-wide uppercase">
+            <div className="inline-flex items-center gap-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-full px-4 py-1.5 mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FFD700] animate-pulse" />
+              <span className="text-[#FFD700] font-tomorrow text-xs font-medium tracking-wide uppercase">
                 Limited Spots Available
               </span>
             </div>
-            <h2 className="font-lexend font-black text-4xl md:text-5xl text-white mb-4">
+            <h2 className="font-tomorrow font-black text-4xl md:text-5xl text-white mb-4">
               Get Your Free<br />
               <span className="text-gradient-blue">NIL Strategy Map</span>
             </h2>
-            <p className="font-inter text-white/50 text-base">
+            <p className="font-tomorrow text-white/50 text-base">
               Tell us about yourself. We&apos;ll send your personalized roadmap within 24 hours.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="font-inter text-white/40 text-xs uppercase tracking-wider block mb-2">
+              <label className="font-tomorrow text-white/40 text-xs uppercase tracking-wider block mb-2">
                 Your Name
               </label>
               <input
@@ -75,7 +74,7 @@ export default function LeadForm() {
             </div>
 
             <div>
-              <label className="font-inter text-white/40 text-xs uppercase tracking-wider block mb-2">
+              <label className="font-tomorrow text-white/40 text-xs uppercase tracking-wider block mb-2">
                 Your Sport
               </label>
               <input
@@ -91,7 +90,7 @@ export default function LeadForm() {
             </div>
 
             <div>
-              <label className="font-inter text-white/40 text-xs uppercase tracking-wider block mb-2">
+              <label className="font-tomorrow text-white/40 text-xs uppercase tracking-wider block mb-2">
                 Follower Count
               </label>
               <select
@@ -115,7 +114,7 @@ export default function LeadForm() {
               disabled={submitting}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-[#1A6EFF] hover:bg-[#1A6EFF]/90 disabled:opacity-50 text-white font-lexend font-bold text-base px-6 py-4 rounded-xl transition-colors duration-200 min-h-[56px] mt-2"
+              className="w-full bg-[#FFD700] hover:bg-[#FFD700]/90 disabled:opacity-50 text-[#0A0A0A] font-tomorrow font-bold text-base px-6 py-4 rounded-xl transition-colors duration-200 min-h-[56px] mt-2"
             >
               <AnimatePresence mode="wait">
                 {submitting ? (
@@ -147,7 +146,7 @@ export default function LeadForm() {
               </AnimatePresence>
             </motion.button>
 
-            <p className="text-center font-inter text-white/25 text-xs pt-2">
+            <p className="text-center font-tomorrow text-white/25 text-xs pt-2">
               No spam. No credit card. Just your roadmap.
             </p>
           </form>

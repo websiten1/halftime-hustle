@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import caseStudiesData from '@/data/caseStudies.json'
 
-// Mini growth graph SVG
+// Mini growth graph SVG — upward momentum
 function GrowthGraph() {
   const points: [number, number][] = [
     [0, 80], [15, 75], [30, 65], [40, 55], [50, 42], [60, 38], [70, 25], [80, 15], [90, 8], [100, 2]
@@ -14,19 +14,32 @@ function GrowthGraph() {
     <svg viewBox="0 0 100 100" className="w-full h-16 mt-4" preserveAspectRatio="none">
       <defs>
         <linearGradient id="graph-fill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#1A6EFF" stopOpacity="0.3"/>
-          <stop offset="100%" stopColor="#1A6EFF" stopOpacity="0"/>
+          <stop offset="0%" stopColor="#FFD700" stopOpacity="0.3"/>
+          <stop offset="100%" stopColor="#FFD700" stopOpacity="0"/>
         </linearGradient>
       </defs>
       <path d={area} fill="url(#graph-fill)"/>
-      <path d={path} stroke="#1A6EFF" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d={path} stroke="#FFD700" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
       {/* End dot */}
-      <circle cx="100" cy="2" r="3" fill="#1A6EFF"/>
+      <circle cx="100" cy="2" r="3" fill="#FFD700"/>
     </svg>
   )
 }
 
-type CaseStudy = typeof caseStudiesData[0]
+type CaseStudy = {
+  id: number
+  name: string
+  sport: string
+  position: string
+  school: string
+  level: string
+  label: string
+  metric: string
+  metricLabel: string
+  description: string
+  tags: string[]
+  color: string
+}
 
 function CaseStudyContent({ study, index }: {
   study: CaseStudy
@@ -41,44 +54,53 @@ function CaseStudyContent({ study, index }: {
       />
 
       <div className="relative">
-        {/* Sport badge */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-2">
-            <span
-              className="inline-block px-3 py-1 rounded-full text-xs font-inter font-medium"
-              style={{ backgroundColor: `${study.color}20`, color: study.color }}
-            >
-              {study.sport}
-            </span>
-            <span className="text-white/30 font-inter text-xs">{study.position}</span>
+        {/* Header row */}
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex flex-col gap-1.5">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span
+                className="inline-block px-3 py-1 rounded-full text-xs font-tomorrow font-medium"
+                style={{ backgroundColor: `${study.color}20`, color: study.color }}
+              >
+                {study.sport}
+              </span>
+              <span className="text-white/30 font-tomorrow text-xs">{study.level}</span>
+            </div>
+            <p className="font-tomorrow text-white/40 text-xs">{study.school}</p>
           </div>
-          <div className="flex gap-1">
+          <div className="flex gap-1 flex-wrap justify-end">
             {study.tags.map(tag => (
-              <span key={tag} className="text-white/20 font-inter text-xs">#{tag}</span>
+              <span key={tag} className="text-white/20 font-tomorrow text-xs">#{tag}</span>
             ))}
           </div>
         </div>
 
+        {/* Label */}
+        <p className="font-tomorrow text-xs font-medium tracking-widest uppercase mb-1" style={{ color: study.color }}>
+          {study.label}
+        </p>
+
         {/* Athlete name */}
-        <h3 className="font-lexend font-black text-2xl text-white mb-1">{study.name}</h3>
+        <h3 className="font-tomorrow font-black text-2xl text-white mb-1">{study.name}</h3>
+        <p className="font-tomorrow text-white/30 text-xs mb-4">{study.position}</p>
 
         {/* Big metric */}
-        <p className="font-lexend font-black text-5xl mb-1" style={{ color: study.color }}>
+        <p className="font-tomorrow font-black text-5xl mb-1" style={{ color: study.color }}>
           {study.metric}
         </p>
-        <p className="font-inter text-white/40 text-sm mb-4">{study.metricLabel}</p>
+        <p className="font-tomorrow text-white/40 text-sm mb-4">{study.metricLabel}</p>
 
         {/* Graph for first card */}
         {index === 0 && <GrowthGraph />}
 
         {/* Placeholder image for card 2 */}
         {index === 1 && (
-          <div className="w-full h-24 rounded-xl bg-gradient-to-r from-[#111] to-[#1a1a2e] border border-white/5 mb-4 flex items-center justify-center">
-            <span className="text-white/20 font-inter text-xs">Athletic photo placeholder</span>
+          <div className="w-full h-24 rounded-xl bg-gradient-to-r from-[#111] to-[#1a1500] border border-white/5 mb-4 flex items-center justify-center">
+            <span className="text-white/20 font-tomorrow text-xs">Athletic photo placeholder</span>
           </div>
         )}
 
-        <p className="font-inter text-white/50 text-sm leading-relaxed mt-4">
+        <p className="font-tomorrow text-white/50 text-sm leading-relaxed mt-4">
           {study.description}
         </p>
       </div>
@@ -87,7 +109,7 @@ function CaseStudyContent({ study, index }: {
 }
 
 export default function CaseStudies() {
-  const studies = caseStudiesData
+  const studies = caseStudiesData as CaseStudy[]
 
   return (
     <section className="py-32 bg-[#0A0A0A] border-t border-white/5">
@@ -99,13 +121,13 @@ export default function CaseStudies() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <p className="font-inter text-[#00E5CC] text-sm font-medium tracking-widest uppercase mb-3">Elite Roster</p>
-          <h2 className="font-lexend font-black text-4xl md:text-5xl text-white">
+          <p className="font-tomorrow text-[#00E5CC] text-sm font-medium tracking-widest uppercase mb-3">Elite Roster</p>
+          <h2 className="font-tomorrow font-black text-4xl md:text-5xl text-white">
             Real Athletes. Real Results.
           </h2>
         </motion.div>
 
-        {/* Desktop: bento grid. Mobile: horizontal scroll */}
+        {/* Mobile: horizontal scroll */}
         <div className="md:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
           {studies.map((study, i) => (
             <div
@@ -118,6 +140,7 @@ export default function CaseStudies() {
           ))}
         </div>
 
+        {/* Desktop: bento grid */}
         <div className="hidden md:grid grid-cols-2 gap-6">
           {studies.map((study, i) => (
             <motion.div

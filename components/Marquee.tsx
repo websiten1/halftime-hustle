@@ -1,10 +1,17 @@
 'use client'
 import { motion } from 'framer-motion'
-import logosData from '@/data/logos.json'
+
+const brandLogos = [
+  { name: 'Nike', src: 'https://logo.clearbit.com/nike.com' },
+  { name: 'Adidas', src: 'https://logo.clearbit.com/adidas.com' },
+  { name: 'On Cloud', src: 'https://logo.clearbit.com/on-running.com' },
+  { name: 'Hey Dude', src: 'https://logo.clearbit.com/heydude.com' },
+  { name: 'Vicis', src: 'https://logo.clearbit.com/vicis.com' },
+  { name: 'The North Face', src: 'https://logo.clearbit.com/thenorthface.com' },
+  { name: 'Arm & Hammer', src: 'https://logo.clearbit.com/churchdwight.com' },
+]
 
 export default function Marquee() {
-  const logos = logosData
-
   return (
     <section id="marquee" className="py-16 border-y border-white/5 overflow-hidden bg-[#0A0A0A]">
       <motion.div
@@ -14,7 +21,7 @@ export default function Marquee() {
         transition={{ duration: 0.6 }}
         className="text-center mb-8"
       >
-        <p className="font-inter text-white/30 text-xs tracking-widest uppercase">
+        <p className="font-tomorrow text-white/30 text-xs tracking-widest uppercase">
           Athletes we&apos;ve worked with have landed deals with
         </p>
       </motion.div>
@@ -27,15 +34,37 @@ export default function Marquee() {
 
         <div className="flex overflow-hidden">
           {/* Two copies for seamless loop */}
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[...logos, ...logos].map((logo, i) => (
+          <div className="flex animate-marquee whitespace-nowrap items-center">
+            {[...brandLogos, ...brandLogos].map((logo, i) => (
               <div
                 key={i}
-                className="group inline-flex items-center mx-10 cursor-default"
+                className="group inline-flex items-center mx-12 cursor-default"
               >
-                <span className="font-lexend font-bold text-2xl text-white/20 group-hover:text-white transition-all duration-300 select-none">
-                  {logo.name}
-                </span>
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  className="h-8 w-auto object-contain transition-all duration-300 select-none"
+                  style={{ filter: 'brightness(0) invert(1)', opacity: 0.25 }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.filter = 'brightness(0) invert(1)'
+                    e.currentTarget.style.opacity = '1'
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.filter = 'brightness(0) invert(1)'
+                    e.currentTarget.style.opacity = '0.25'
+                  }}
+                  onError={e => {
+                    // Fallback to styled text if image fails to load
+                    const parent = e.currentTarget.parentElement
+                    if (parent) {
+                      e.currentTarget.style.display = 'none'
+                      const span = document.createElement('span')
+                      span.textContent = logo.name
+                      span.className = 'font-tomorrow font-bold text-xl text-white/20'
+                      parent.appendChild(span)
+                    }
+                  }}
+                />
               </div>
             ))}
           </div>

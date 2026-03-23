@@ -14,8 +14,8 @@ export default function MobileCTA() {
       }}
     >
       <a
-        href="#lead-form"
-        className="w-full flex items-center justify-center gap-2 bg-[#1A6EFF] text-white font-lexend font-bold text-base px-6 py-4 rounded-2xl min-h-[56px] shadow-lg shadow-[#1A6EFF]/30"
+        href="/#lead-form"
+        className="w-full flex items-center justify-center gap-2 bg-[#FFD700] text-[#0A0A0A] font-tomorrow font-bold text-base px-6 py-4 rounded-2xl min-h-[56px] shadow-lg shadow-[#FFD700]/20"
       >
         Get My NIL Strategy
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

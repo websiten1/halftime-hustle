@@ -22,8 +22,8 @@ export default function FAQ({ data }: { data?: FAQItem[] }) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="font-inter text-white/40 text-sm font-medium tracking-widest uppercase mb-3">FAQ</p>
-          <h2 className="font-lexend font-black text-4xl md:text-5xl text-white">
+          <p className="font-tomorrow text-white/40 text-sm font-medium tracking-widest uppercase mb-3">FAQ</p>
+          <h2 className="font-tomorrow font-black text-4xl md:text-5xl text-white">
             Questions? We&apos;ve got answers.
           </h2>
         </motion.div>
@@ -41,7 +41,7 @@ export default function FAQ({ data }: { data?: FAQItem[] }) {
               <div
                 className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                   openIndex === i
-                    ? 'border-[#1A6EFF]/30 bg-[#0d1a33]/40'
+                    ? 'border-[#FFD700]/30 bg-[#1a1500]/40'
                     : 'border-white/5 bg-[#111] hover:border-white/10'
                 }`}
               >
@@ -50,7 +50,7 @@ export default function FAQ({ data }: { data?: FAQItem[] }) {
                   className="w-full flex items-center justify-between px-6 py-5 text-left min-h-[64px]"
                   aria-expanded={openIndex === i}
                 >
-                  <span className="font-lexend font-semibold text-white text-base pr-4">
+                  <span className="font-tomorrow font-semibold text-white text-base pr-4">
                     {faq.question}
                   </span>
                   <motion.div
@@ -73,7 +73,7 @@ export default function FAQ({ data }: { data?: FAQItem[] }) {
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="font-inter text-white/60 text-sm leading-relaxed px-6 pb-6">
+                      <p className="font-tomorrow text-white/60 text-sm leading-relaxed px-6 pb-6">
                         {faq.answer}
                       </p>
                     </motion.div>
@@ -92,10 +92,10 @@ export default function FAQ({ data }: { data?: FAQItem[] }) {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center mt-16 will-change-transform"
         >
-          <p className="font-inter text-white/40 text-sm mb-4">Still have questions?</p>
+          <p className="font-tomorrow text-white/40 text-sm mb-4">Still have questions?</p>
           <a
             href="/#lead-form"
-            className="inline-flex items-center gap-2 text-[#1A6EFF] hover:text-white font-lexend font-semibold text-base transition-colors duration-200"
+            className="inline-flex items-center gap-2 text-[#FFD700] hover:text-white font-tomorrow font-semibold text-base transition-colors duration-200"
           >
             Get in touch
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

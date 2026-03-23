@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const STEPS = [
   {
-    num: '01', title: 'Magnetize', color: '#1A6EFF',
+    num: '01', title: 'Magnetize', color: '#FFD700',
     subtitle: 'Create what brands crave',
     body: 'We analyze your audience, identify your brand DNA, and build a content system that turns scrolls into sponsorships.',
   },
@@ -13,11 +13,13 @@ const STEPS = [
     body: 'Your NIL media kit, sponsor deck, and outreach strategy — designed to make brands say yes before you finish talking.',
   },
   {
-    num: '03', title: 'Capture', color: '#1A6EFF',
+    num: '03', title: 'Capture', color: '#FFD700',
     subtitle: 'Turning attention into contracts',
     body: 'We identify the right brands, warm the relationship, and help you close deals. You play. We pitch.',
   },
 ]
+
+const VIDEO_SRC = 'https://www.w3schools.com/html/mov_bbb.mp4'
 
 export default function BasketballProtocol() {
   return (
@@ -30,12 +32,10 @@ export default function BasketballProtocol() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <p className="text-xs tracking-widest uppercase mb-3"
-            style={{ color: '#1A6EFF', fontFamily: 'Inter, sans-serif' }}>
+          <p className="font-tomorrow text-xs tracking-widest uppercase mb-3" style={{ color: '#FFD700' }}>
             The Process
           </p>
-          <h2 className="font-black text-4xl md:text-5xl text-white"
-            style={{ fontFamily: 'Lexend, sans-serif' }}>
+          <h2 className="font-tomorrow font-black text-4xl md:text-5xl text-white">
             The Halftime Protocol
           </h2>
         </motion.div>
@@ -48,28 +48,53 @@ export default function BasketballProtocol() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="relative p-8 rounded-2xl border border-white/5 bg-[#111] group hover:border-white/10 transition-colors duration-300"
+              className="relative rounded-2xl overflow-hidden group min-h-[320px]"
             >
-              {/* Step number */}
-              <span className="block font-black leading-none mb-4 select-none"
-                style={{ fontSize: 72, color: 'rgba(255,255,255,0.04)', fontFamily: 'Lexend, sans-serif' }}>
-                {step.num}
-              </span>
+              {/* Mobile: gradient fallback background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a00] to-[#0d0d0d]" />
 
-              {/* Color accent line */}
-              <div className="w-8 h-[3px] rounded-full mb-5" style={{ background: step.color }} />
+              {/* Desktop: video background */}
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="none"
+                className="absolute inset-0 w-full h-full object-cover hidden sm:block"
+              >
+                <source src={VIDEO_SRC} type="video/mp4" />
+              </video>
 
-              <h3 className="font-black text-2xl text-white mb-1"
-                style={{ fontFamily: 'Lexend, sans-serif' }}>
-                {step.title}
-              </h3>
-              <p className="text-sm mb-4" style={{ color: step.color, fontFamily: 'Inter, sans-serif' }}>
-                {step.subtitle}
-              </p>
-              <p className="text-sm leading-relaxed text-white/50"
-                style={{ fontFamily: 'Inter, sans-serif' }}>
-                {step.body}
-              </p>
+              {/* Dark overlay — always present so text is readable */}
+              <div className="absolute inset-0 bg-black/65" />
+
+              {/* Card border */}
+              <div
+                className="absolute inset-0 rounded-2xl border border-white/10 group-hover:border-white/20 transition-colors duration-300"
+                style={{ pointerEvents: 'none' }}
+              />
+
+              {/* Content */}
+              <div className="relative z-10 p-8">
+                {/* Step number */}
+                <span className="block font-tomorrow font-black leading-none mb-4 select-none"
+                  style={{ fontSize: 72, color: 'rgba(255,255,255,0.06)' }}>
+                  {step.num}
+                </span>
+
+                {/* Color accent line */}
+                <div className="w-8 h-[3px] rounded-full mb-5" style={{ background: step.color }} />
+
+                <h3 className="font-tomorrow font-black text-2xl text-white mb-1">
+                  {step.title}
+                </h3>
+                <p className="font-tomorrow text-sm mb-4" style={{ color: step.color }}>
+                  {step.subtitle}
+                </p>
+                <p className="font-tomorrow text-sm leading-relaxed text-white/70">
+                  {step.body}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

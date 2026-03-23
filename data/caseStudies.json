@@ -2,22 +2,28 @@
   {
     "id": 1,
     "name": "Solomon Barnes",
-    "sport": "Basketball",
-    "position": "Guard",
+    "sport": "Track & Field",
+    "position": "Triple Jump · Long Jump · 400m Hurdles",
+    "school": "Central Baptist College, AR",
+    "level": "NAIA",
+    "label": "The Speedster",
     "metric": "5k → 10k",
-    "metricLabel": "followers in 28 days",
-    "description": "Built a content system from scratch that doubled his following, landed a local sportswear deal, and positioned him as a go-to voice in the NAIA space.",
-    "tags": ["Growth", "Brand Deals", "Content"],
-    "color": "#1A6EFF"
+    "metricLabel": "followers in under 28 days",
+    "description": "Built a content system around explosive athletic identity that doubled his following in under a month — landing a local sportswear deal and establishing him as a standout voice in the NAIA space.",
+    "tags": ["Growth", "Brand Deals", "NAIA"],
+    "color": "#FFD700"
   },
   {
     "id": 2,
     "name": "Jayden Bell",
     "sport": "Football",
     "position": "Defensive End",
+    "school": "Class of 2028",
+    "level": "Recruit",
+    "label": "The 5-Star",
     "metric": "#1",
-    "metricLabel": "Ranked recruit in region",
-    "description": "Managed the digital brand of one of the nation's top recruits — creating a pro-level media presence before he ever signed a college letter of intent.",
+    "metricLabel": "Ranked recruit in his class",
+    "description": "Managing the digital brand of one of the nation's top recruits in the 2028 class — building a pro-level media presence and national visibility before he ever signs a letter of intent.",
     "tags": ["Recruiting", "Media", "NIL"],
     "color": "#00E5CC"
   }
