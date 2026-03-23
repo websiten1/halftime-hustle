@@ -3,9 +3,14 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import faqData from '@/data/faq.json'
 
-export default function FAQ() {
+interface FAQItem {
+  question: string
+  answer: string
+}
+
+export default function FAQ({ data }: { data?: FAQItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
-  const faqs = faqData
+  const faqs = data || faqData
 
   return (
     <section id="faq" className="py-32 bg-[#0d0d18] border-t border-white/5">
@@ -89,7 +94,7 @@ export default function FAQ() {
         >
           <p className="font-inter text-white/40 text-sm mb-4">Still have questions?</p>
           <a
-            href="#lead-form"
+            href="/#lead-form"
             className="inline-flex items-center gap-2 text-[#1A6EFF] hover:text-white font-lexend font-semibold text-base transition-colors duration-200"
           >
             Get in touch

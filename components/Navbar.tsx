@@ -14,10 +14,11 @@ export default function Navbar() {
   }, [])
 
   const links = [
-    { label: 'Athletes', href: '#about' },
-    { label: 'Brands', href: '#marquee' },
-    { label: 'Process', href: '#protocol' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'Athletes', href: '/#about' },
+    { label: 'Brands', href: '/#marquee' },
+    { label: 'Process', href: '/#protocol' },
+    { label: 'FAQ', href: '/#faq' },
+    { label: 'Pricing', href: '/pricing' },
   ]
 
   return (
@@ -56,7 +57,7 @@ export default function Navbar() {
         {/* CTA */}
         <div className="flex items-center gap-4">
           <a
-            href="#lead-form"
+            href="/#lead-form"
             className="hidden md:inline-flex items-center gap-2 bg-[#1A6EFF] hover:bg-[#1A6EFF]/90 text-white font-lexend font-semibold text-sm px-5 py-2.5 rounded-xl transition-all duration-200 hover:scale-105 animate-pulse_blue min-h-[44px]"
           >
             Get My NIL Strategy
@@ -99,7 +100,7 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href="#lead-form"
+            href="/#lead-form"
             onClick={() => setMenuOpen(false)}
             className="mt-4 w-full flex items-center justify-center bg-[#1A6EFF] text-white font-lexend font-semibold text-sm px-5 py-3 rounded-xl min-h-[44px]"
           >

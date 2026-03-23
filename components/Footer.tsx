@@ -3,10 +3,11 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const navLinks = [
-  { label: 'Athletes', href: '#about' },
-  { label: 'Brands', href: '#marquee' },
-  { label: 'Process', href: '#protocol' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Athletes', href: '/#about' },
+  { label: 'Brands', href: '/#marquee' },
+  { label: 'Process', href: '/#protocol' },
+  { label: 'FAQ', href: '/#faq' },
+  { label: 'Pricing', href: '/pricing' },
 ]
 
 export default function Footer() {
