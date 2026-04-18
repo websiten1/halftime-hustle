@@ -9,12 +9,10 @@ export default function LeadForm() {
   const [focused, setFocused] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.name || !form.sport || !form.followers) return
     setSubmitting(true)
-    await new Promise(r => setTimeout(r, 800))
-    router.push('/thank-you')
+    router.push('/work-with-us')
   }
 
   const inputClass = (field: string) =>

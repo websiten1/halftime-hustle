@@ -59,15 +59,15 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="flex items-center gap-4">
-          <a
-            href="/#lead-form"
+          <Link
+            href="/work-with-us"
             className="hidden md:inline-flex items-center gap-2 bg-[#FFD700] hover:bg-[#FFD700]/90 text-[#0A0A0A] font-tomorrow font-semibold text-sm px-5 py-2.5 rounded-xl transition-all duration-200 hover:scale-105 animate-pulse_blue min-h-[44px]"
           >
             Get My NIL Strategy
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-          </a>
+          </Link>
 
           {/* Mobile menu button */}
           <button
@@ -111,13 +111,13 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <a
-            href="/#lead-form"
+          <Link
+            href="/work-with-us"
             onClick={() => setMenuOpen(false)}
             className="mt-4 w-full flex items-center justify-center bg-[#FFD700] text-[#0A0A0A] font-tomorrow font-semibold text-sm px-5 py-3 rounded-xl min-h-[48px]"
           >
             Get My NIL Strategy
-          </a>
+          </Link>
         </motion.div>
       )}
     </motion.nav>

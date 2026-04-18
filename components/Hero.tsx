@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 const words = ['I', 'give', 'every', 'athlete', 'the', 'playbook', 'to', 'land', 'real', 'brand', 'deals.']
 const gradientWords = ['real']
@@ -114,8 +115,8 @@ export default function Hero() {
             animate="visible"
             className="flex flex-col sm:flex-row gap-4 mt-6 mb-8 md:mt-0 md:mb-0"
           >
-            <a
-              href="/#lead-form"
+            <Link
+              href="/work-with-us"
               className="inline-flex items-center justify-center gap-2 text-[#0A0A0A] font-tomorrow font-bold text-lg md:text-base px-7 py-4 rounded-xl transition-all duration-200 hover:scale-105 min-h-[52px]"
               style={{
                 background: '#FFD700',
@@ -127,7 +128,7 @@ export default function Hero() {
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </a>
+            </Link>
             <a
               href="/#protocol"
               className="inline-flex items-center justify-center gap-2 text-white font-tomorrow font-semibold text-base px-7 py-4 rounded-xl transition-all duration-200 min-h-[52px]"
