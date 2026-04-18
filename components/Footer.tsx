@@ -7,7 +7,7 @@ const navLinks = [
   { label: 'Brands', href: '/#marquee' },
   { label: 'Process', href: '/#protocol' },
   { label: 'FAQ', href: '/#faq' },
-  { label: 'Work With Us', href: '/pricing' },
+  { label: 'Work With Us', href: '/work-with-us' },
 ]
 
 export default function Footer() {
