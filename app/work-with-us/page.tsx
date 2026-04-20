@@ -33,8 +33,8 @@ const tiers = [
   {
     id: 'pro',
     name: 'Pro',
-    price: '$149/mo',
-    subtext: 'Month to month · Cancel anytime',
+    price: '$149 one-time',
+    subtext: 'One-time payment · Lifetime access',
     description:
       'Everything you need to grow your audience, land your first brand deals, and build the portfolio that gets you taken seriously.',
     includes: [
