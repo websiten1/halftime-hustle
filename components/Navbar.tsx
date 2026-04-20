@@ -20,6 +20,7 @@ export default function Navbar() {
     { label: 'Process', href: '/#protocol' },
     { label: 'FAQ', href: '/#faq' },
     { label: 'Work With Us', href: '/work-with-us' },
+    { label: 'Apply', href: '/apply' },
   ]
 
   return (
